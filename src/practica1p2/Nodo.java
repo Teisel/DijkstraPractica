@@ -7,7 +7,16 @@ public class Nodo
     private String name;
     private Nodo[] vecinos;
     private int[] peso;
-
+    
+    public Nodo(){}
+    
+    public Nodo(String name, Nodo[] vecinos, int[] peso)
+    {
+        this.name = name;
+        this.peso = peso;
+        this.vecinos = vecinos;
+    }
+ 
     public String getName() {
         return name;
     }
@@ -31,7 +40,6 @@ public class Nodo
     public void setPeso(int[] peso) {
         this.peso = peso;
     }
-    
     
     
 }

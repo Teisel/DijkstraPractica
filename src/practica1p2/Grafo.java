@@ -1,14 +1,19 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package practica1p2;
 
-/**
- *
- * @author teise
- */
-public class Grafo {
+
+public class Grafo 
+{
+    private Nodo[] grafo;
+    
+    public Grafo(){}
+
+    public Nodo[] getGrafo() {
+        return grafo;
+    }
+
+    public void setGrafo(Nodo[] grafo) {
+        this.grafo = grafo;
+    }
     
 }

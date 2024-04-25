@@ -1,21 +1,172 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package practica1p2;
 
-/**
- *
- * @author teise
- */
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
+
 public class Practica1P2 {
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        // TODO code application logic here
+    private Grafo grafo = new Grafo();
+
+    public static void main(String[] args) 
+    {
+        int op = 0;
+        
+        crearGrafo();
+        
+        while(op != 4)
+        {
+            System.out.println("Elija una opccion");
+            System.out.println("1 --- Establecer un inicio");
+            System.out.println("2 --- Establecer un final");
+            System.out.println("3 --- Iniciar Dijkastra");
+            System.out.println("4 --- Salir");
+            
+            op = isNumber();
+        }
     }
     
+    private static int isNumber() {
+        Scanner reader = new Scanner(System.in);
+        int num = 0;
+        try
+        {
+            num = reader.nextInt();
+        }
+        catch(InputMismatchException ime)
+        {
+        System.out.println("Solo puedes usar numeros");
+        reader.next();
+        return -1;
+        }
+        return num;
+    } 
+    
+    private static void crearGrafo()
+    {
+        Nodo[] nodo = new Nodo[8];
+        String name = "ABCDEFGH";
+        Nodo[] tempNodo;
+        int[] tempPeso;
+        
+        for (int i = 0; i < 8; i++)
+        {
+            nodo[i] = new Nodo();
+            nodo[i].setName(name.substring(i, i + 1));
+        }
+        
+        //A
+        tempNodo = new Nodo[2];
+        tempNodo[0] = nodo[1];
+        tempNodo[1] = nodo[5];
+        
+        tempPeso = new int[2];
+        tempPeso[0] = 2;
+        tempPeso[1] = 1;
+        
+        nodo[0].setVecinos(tempNodo);
+        nodo[0].setPeso(tempPeso);
+        
+        //B
+        tempNodo = new Nodo[4];
+        tempNodo[0] = nodo[0];
+        tempNodo[1] = nodo[2];
+        tempNodo[2] = nodo[3];
+        tempNodo[3] = nodo[4];
+        
+        tempPeso = new int[4];
+        tempPeso[0] = 2;
+        tempPeso[1] = 2;
+        tempPeso[2] = 2;
+        tempPeso[3] = 4;
+        
+        nodo[1].setVecinos(tempNodo);
+        nodo[1].setPeso(tempPeso);
+        
+        //C
+        tempNodo = new Nodo[3];
+        tempNodo[0] = nodo[1];
+        tempNodo[1] = nodo[4];
+        tempNodo[2] = nodo[7];
+        
+        tempPeso = new int[3];
+        tempPeso[0] = 2;
+        tempPeso[1] = 3;
+        tempPeso[2] = 1;
+        
+        nodo[2].setVecinos(tempNodo);
+        nodo[2].setPeso(tempPeso);
+        
+        //D
+        tempNodo = new Nodo[3];
+        tempNodo[0] = nodo[1];
+        tempNodo[1] = nodo[4];
+        tempNodo[2] = nodo[5];
+        
+        tempPeso = new int[3];
+        tempPeso[0] = 2;
+        tempPeso[1] = 4;
+        tempPeso[2] = 3;
+        
+        nodo[3].setVecinos(tempNodo);
+        nodo[3].setPeso(tempPeso);
+        
+        //E
+        tempNodo = new Nodo[4];
+        tempNodo[0] = nodo[1];
+        tempNodo[1] = nodo[2];
+        tempNodo[2] = nodo[3];
+        tempNodo[3] = nodo[6];
+        
+        tempPeso = new int[4];
+        tempPeso[0] = 4;
+        tempPeso[1] = 3;
+        tempPeso[2] = 4;
+        tempPeso[3] = 7;
+        
+        nodo[4].setVecinos(tempNodo);
+        nodo[4].setPeso(tempPeso);
+        
+        //F
+        tempNodo = new Nodo[3];
+        tempNodo[0] = nodo[0];
+        tempNodo[1] = nodo[3];
+        tempNodo[2] = nodo[6];
+        
+        tempPeso = new int[3];
+        tempPeso[0] = 1;
+        tempPeso[1] = 3;
+        tempPeso[2] = 5;
+        
+        nodo[5].setVecinos(tempNodo);
+        nodo[5].setPeso(tempPeso);
+        
+        //G
+        tempNodo = new Nodo[3];
+        tempNodo[0] = nodo[4];
+        tempNodo[1] = nodo[5];
+        tempNodo[2] = nodo[7];
+        
+        tempPeso = new int[3];
+        tempPeso[0] = 7;
+        tempPeso[1] = 5;
+        tempPeso[2] = 3;
+        
+        nodo[6].setVecinos(tempNodo);
+        nodo[6].setPeso(tempPeso);
+        
+        //H
+        tempNodo = new Nodo[2];
+        tempNodo[0] = nodo[2];
+        tempNodo[1] = nodo[6];
+        
+        tempPeso = new int[2];
+        tempPeso[0] = 1;
+        tempPeso[1] = 3;
+        
+        nodo[7].setVecinos(tempNodo);
+        nodo[7].setPeso(tempPeso);
+        
+    }
 }
