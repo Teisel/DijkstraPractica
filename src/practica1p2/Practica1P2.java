@@ -8,10 +8,13 @@ import java.util.Scanner;
 public class Practica1P2 {
 
     private Grafo grafo = new Grafo();
+    
 
     public static void main(String[] args) 
     {
         int op = 0;
+        String inicio = "";
+        String termino = "";
         
         crearGrafo();
         
@@ -24,6 +27,22 @@ public class Practica1P2 {
             System.out.println("4 --- Salir");
             
             op = isNumber();
+            
+            switch(op)
+            {
+                case 1:
+                    inicio = getLetra(inicio, termino);
+                break;
+                
+                case 2:
+                    termino = getLetra(inicio, termino);
+                break;
+                
+                case 3:
+                    
+                break;
+            }
+            
         }
     }
     
@@ -42,6 +61,31 @@ public class Practica1P2 {
         }
         return num;
     } 
+    
+    private static String getLetra(String inicio, String termino)
+    {
+        String letra = "";
+        String options = "ABCDEFGH";
+        boolean flag = true;
+        while(flag)
+        {
+            while(letra.equals(""))
+            {
+                Scanner reader = new Scanner(System.in);
+                letra = reader.nextLine(); 
+                letra.toUpperCase();
+            }   
+            
+            if ((options.contains(letra)) && (!letra.equals(inicio)) && (!letra.equals(termino)))
+            {
+                flag = !flag;
+            }
+        }
+        
+        
+        letra = letra.substring(0, 1);
+        return letra;
+    }
     
     private static void crearGrafo()
     {
@@ -167,6 +211,5 @@ public class Practica1P2 {
         
         nodo[7].setVecinos(tempNodo);
         nodo[7].setPeso(tempPeso);
-        
     }
 }
