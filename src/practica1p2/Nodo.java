@@ -5,6 +5,7 @@ package practica1p2;
 public class Nodo 
 {
     private String name;
+    private boolean visitado;
     private Nodo[] vecinos;
     private int[] peso;
     
@@ -40,6 +41,13 @@ public class Nodo
     public void setPeso(int[] peso) {
         this.peso = peso;
     }
-    
+
+    public boolean isVisitado() {
+        return visitado;
+    }
+
+    public void setVisitado(boolean visitado) {
+        this.visitado = visitado;
+    }
     
 }
