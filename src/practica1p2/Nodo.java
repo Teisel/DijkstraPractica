@@ -8,6 +8,7 @@ public class Nodo
     private boolean visitado;
     private Nodo[] vecinos;
     private int[] peso;
+    private int distancia;
     
     public Nodo(){}
     
@@ -48,6 +49,14 @@ public class Nodo
 
     public void setVisitado(boolean visitado) {
         this.visitado = visitado;
+    }
+    
+    public int getDistancia() {
+        return distancia;
+    }
+
+    public void setDistancia(int distancia) {
+        this.distancia = distancia;
     }
     
 }

@@ -44,7 +44,7 @@ public class Practica1P2 {
                 break;
                 
                 case 3:
-                    
+                    grafo.dijkstra(inicio, termino);
                 break;
             }
             
